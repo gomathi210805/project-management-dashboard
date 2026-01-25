@@ -22,6 +22,9 @@ const Login = ({ setIsAuthenticated }) => {
       localStorage.setItem('isLoggedIn', 'true')
       localStorage.setItem('userEmail', credentials.email || 'demo@example.com')
       localStorage.setItem('userName', 'Admin')
+
+      // 👉 ADD ROLE HERE (CHANGE FOR TESTING: admin / pm / lead / member)
+      localStorage.setItem('role', 'pm')
       
       // Update auth state
       setIsAuthenticated(true)
@@ -36,8 +39,11 @@ const Login = ({ setIsAuthenticated }) => {
     
     // Store login state
     localStorage.setItem('isLoggedIn', 'true')
-    localStorage.setItem('userEmail', 'admin@example.com')
-    localStorage.setItem('userName', 'Admin')
+    localStorage.setItem('userEmail', 'pm@example.com')
+    localStorage.setItem('userName', 'pm')
+
+    // 👉 ADD ROLE HERE ALSO
+    localStorage.setItem('role', 'pm')
     
     // Update auth state
     setIsAuthenticated(true)

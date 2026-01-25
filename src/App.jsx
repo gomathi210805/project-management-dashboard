@@ -13,6 +13,9 @@ import Layout from './components/Layout'
 function App() {
   const [isAuthenticated, setIsAuthenticated] = useState(false)
 
+  // ✅ ADD: get role from localStorage
+  const role = localStorage.getItem('role')
+
   useEffect(() => {
     // Check if user is logged in
     const loggedIn = localStorage.getItem('isLoggedIn') === 'true'
@@ -32,6 +35,7 @@ function App() {
             )
           } 
         />
+
         <Route 
           path="/" 
           element={
@@ -42,13 +46,26 @@ function App() {
             )
           }
         >
-          <Route index element={<Dashboard />} />
+
+          {/* ✅ REPLACE INDEX DASHBOARD WITH ROLE-BASED DASHBOARD */}
+          <Route
+            index
+            element={
+              role === 'admin' ? <Dashboard /> :
+              role === 'pm' ? <Projects /> :
+              role === 'lead' ? <Team /> :
+              role === 'member' ? <Tasks /> :
+              <Dashboard />
+            }
+          />
+
           <Route path="projects" element={<Projects />} />
           <Route path="tasks" element={<Tasks />} />
           <Route path="timesheets" element={<Timesheets />} />
           <Route path="reports" element={<Reports />} />
           <Route path="team" element={<Team />} />
           <Route path="settings" element={<Settings />} />
+
         </Route>
       </Routes>
     </Router>
