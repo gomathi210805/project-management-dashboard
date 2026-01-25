@@ -1,0 +1,59 @@
+@import "tailwindcss";
+@import '@fortawesome/fontawesome-free/css/all.min.css';
+
+:root {
+  --gold-primary: #d55353;
+  --gold-secondary: #ffcc00;
+}
+
+body {
+  background: linear-gradient(135deg, #000000 50%, #1f2e45 100%);
+  min-height: 100vh;
+  color: #f1f5f9;
+}
+
+/* Custom glass effect classes */
+.glass-dark {
+  background: #09010b;/*rgba(14, 50, 98, 0.7);*/
+  backdrop-filter: blur(300px);
+  border: 1px solid rgba(0, 0, 0, 0.1);
+}
+
+.glass-light {
+  background: rgba(0, 0, 0, 0.1);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.golden-gradient {
+  background: linear-gradient(135deg, var(--gold-primary), var(--gold-secondary));
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+.golden-border {
+  border: 1px solid rgba(246, 208, 46, 0.3);
+}
+
+.golden-glow {
+  box-shadow: 0 0 30px rgba(246, 208, 46, 0.3);
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: rgba(255, 11, 11, 0.5);
+}
+
+::-webkit-scrollbar-thumb {
+  background: linear-gradient(135deg, var(--gold-primary), var(--gold-secondary));
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: linear-gradient(135deg, var(--gold-secondary), var(--gold-primary));
+}
