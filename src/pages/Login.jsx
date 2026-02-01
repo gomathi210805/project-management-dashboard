@@ -14,41 +14,32 @@ const Login = ({ setIsAuthenticated }) => {
     e.preventDefault()
     setIsLoading(true)
 
-    // Simulate API call
     setTimeout(() => {
       setIsLoading(false)
       
-      // Store login state
+  
       localStorage.setItem('isLoggedIn', 'true')
       localStorage.setItem('userEmail', credentials.email || 'demo@example.com')
-      localStorage.setItem('userName', 'Admin')
+      localStorage.setItem('userName', 'pm')
 
-      // 👉 ADD ROLE HERE (CHANGE FOR TESTING: admin / pm / lead / member)
-      localStorage.setItem('role', 'pm')
-      
-      // Update auth state
+      //  ADD ROLE HERE 
+      localStorage.setItem('role', 'member')
+     
       setIsAuthenticated(true)
-      
-      // Navigate to dashboard
       navigate('/')
     }, 1000)
   }
 
   const handleQuickLogin = () => {
     console.log('Quick login clicked')
-    
-    // Store login state
     localStorage.setItem('isLoggedIn', 'true')
-    localStorage.setItem('userEmail', 'pm@example.com')
-    localStorage.setItem('userName', 'pm')
+    localStorage.setItem('userEmail', 'member@example.com')
+    localStorage.setItem('userName', 'member')
 
     // 👉 ADD ROLE HERE ALSO
-    localStorage.setItem('role', 'pm')
+    localStorage.setItem('role', 'member')
     
-    // Update auth state
     setIsAuthenticated(true)
-    
-    // Navigate to dashboard
     navigate('/')
   }
 
